@@ -1,6 +1,6 @@
-if(process.env.NODE_ENV !== 'production'){
+if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
-} 
+}
 
 const express = require('express');
 const app = express();
@@ -43,8 +43,8 @@ const sessionConfig = {
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
-        expires: Date.now() + 1000*60*60*24*7,
-        maxAge: + 1000*60*60*24*7
+        expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+        maxAge: + 1000 * 60 * 60 * 24 * 7
     }
 };
 
@@ -72,8 +72,8 @@ passport.deserializeUser(User.deserializeUser());
 
 
 //flash middleware
-app.use((req, res, next) =>{
-    console.log(req.session)
+app.use((req, res, next) => {
+    // console.log(req.session)
     res.locals.currentUser = req.user;
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
