@@ -7,9 +7,10 @@
         <div class="card mb-3">
             <div class="row">
                 <div class="col-md-4">
-                    <img class="img-fluid" src="<%= campground.image %>" alt="campground image">
+                    <% for(image of campground.images) { %>
+                        <img class="img-fluid" src="<%= image.url %>" class="card-img-top" alt="Campground Image">
+                        <% } %>
                 </div>
-
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">
